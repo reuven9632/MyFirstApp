@@ -30,8 +30,10 @@ public class Controller {
 
     @FXML
     void initialize() {
-        authButton.setOnAction(event -> {
+        assert authButton != null : "fx:id=\"authButton\" was not injected: check your FXML file 'sample.fxml'.";
+        assert login_field != null : "fx:id=\"login_field\" was not injected: check your FXML file 'sample.fxml'.";
+        assert registrationButoon != null : "fx:id=\"registrationButoon\" was not injected: check your FXML file 'sample.fxml'.";
+        assert password_field != null : "fx:id=\"password_field\" was not injected: check your FXML file 'sample.fxml'.";
 
-        });
     }
 }
