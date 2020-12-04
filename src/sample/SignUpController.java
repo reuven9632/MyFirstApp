@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -13,7 +14,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Controller {
+public class SignUpController {
 
     @FXML
     private ResourceBundle resources;
@@ -22,51 +23,46 @@ public class Controller {
     private URL location;
 
     @FXML
-    private Button authButton;
-
-    @FXML
-    private TextField login_field;
+    private TextField loginField;
 
     @FXML
     private Button registrationButoon;
 
     @FXML
-    private PasswordField password_field;
+    private PasswordField passwordField;
+
+    @FXML
+    private TextField lastName;
+
+    @FXML
+    private TextField userLocation;
+
+    @FXML
+    private RadioButton gender;
+
+    @FXML
+    private TextField firstName;
 
     @FXML
     void initialize() {
-        authButton.setOnAction(event -> {
-            String login = login_field.getText().trim();
-            String password = password_field.getText().trim();
-
-            if (!login.equals("") && !password.equals(""))
-                loginUser(login, password);
-            else
-                System.out.println("login or password is empty");
-        });
-
-
+        DataBaseHandler dbHendler = new DataBaseHandler();
         registrationButoon.setOnAction(event -> {
+            dbHendler.signUpUser(firstName.getText(), lastName.getText(), loginField.getText(), passwordField.getText(), userLocation.getText(), gender.getText());
+
             registrationButoon.getScene().getWindow().hide();
 
             Parent root = null;
-            try {
-                root = FXMLLoader.load(getClass().getResource("/sample/signUp.fxml"));
-            } catch (IOException e) {
+            try{
+                root = FXMLLoader.load(getClass().getResource("/sample/appHome.fxml"));
+            }
+            catch (IOException e) {
                 e.printStackTrace();
             }
+
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.showAndWait();
 
-
-
-
-
-
         });
-    }
-
-    private void loginUser(String login, String password) {
     }
 }

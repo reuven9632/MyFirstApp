@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="954.0" style="-fx-background-color: #23A8F2;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AppHomeController">
+    <children>
+        <AnchorPane layoutX="231.0" prefHeight="645.0" prefWidth="723.0" style="-fx-background-color: #9D9D9D;">
+            <children>
+                <Label layoutX="200.0" layoutY="25.0" prefHeight="113.0" prefWidth="324.0" text="HOME PAGE" textFill="#373d49">
+                    <font>
+                        <Font name="AR DELANEY" size="52.0" />
+                    </font>
+                </Label>
+            <ImageView fitHeight="285.0" fitWidth="592.0" layoutX="127.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../Users/reuven2/Desktop/desktop--code.jpg" />
+               </image>
+            </ImageView>
+            </children>
+        </AnchorPane>
+        <Label layoutX="9.0" prefHeight="59.0" prefWidth="213.0" text="my First app" textFill="#373d49">
+            <font>
+                <Font name="AR DESTINE" size="33.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>
