@@ -1,20 +1,18 @@
 package sample;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DataBaseHandler extends Configs{
     Connection dbConnection;
 
     public Connection getDbConnection()
-            throws SQLException, ClassNotFoundException {
-        String connectionString = "jdbc:/mysql//" + dbHost + ":" + dbPort + "/" + dbName;
+            throws ClassNotFoundException, SQLException {
 
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        String connectionString = "jdbc:mysql://" + dbHost + ":" + dbPort + "/" + dbName;
+        Statement stmt = (Statement) dbConnection.createStatement();
 
-        dbConnection = DriverManager.getConnection(connectionString, dbLogin, dbPassword);
+            dbConnection = DriverManager.getConnection(connectionString, dbLogin, dbPassword);
 
         return dbConnection;
     }
@@ -34,10 +32,8 @@ public class DataBaseHandler extends Configs{
             prSt.setString(6, gender);
 
             prSt.executeUpdate();
-        } catch (SQLException throwables) {
+        } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         }
 
     }

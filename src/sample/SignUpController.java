@@ -45,9 +45,11 @@ public class SignUpController {
 
     @FXML
     void initialize() {
-        DataBaseHandler dbHendler = new DataBaseHandler();
+        DataBaseHandler dbHandler = new DataBaseHandler();
         registrationButoon.setOnAction(event -> {
-            dbHendler.signUpUser(firstName.getText(), lastName.getText(), loginField.getText(), passwordField.getText(), userLocation.getText(), gender.getText());
+            dbHandler.signUpUser(firstName.getText(), lastName.getText(), loginField.getText(), passwordField.getText(), userLocation.getText(), "Male");
+
+
 
             registrationButoon.getScene().getWindow().hide();
 
